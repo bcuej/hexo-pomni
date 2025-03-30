@@ -3,7 +3,7 @@ name: Pages
 on:
   push:
     branches:
-      - gh-pages # 我们设置的分支是 gh-pages
+      - main # 我们设置的分支是 gh-pages
  
 jobs:
   build:
