@@ -30,7 +30,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/redefine-og.webp">
 <meta property="article:published_time" content="2025-03-30T11:54:37.000Z">
-<meta property="article:modified_time" content="2025-03-31T12:25:03.340Z">
+<meta property="article:modified_time" content="2025-03-31T15:09:01.970Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="CTF">
 <meta name="twitter:card" content="summary">
@@ -109,7 +109,119 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 
@@ -361,7 +473,7 @@
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">2</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">1</div>
         <div class="label text-third-text-color text-sm">Tags</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
@@ -369,7 +481,7 @@
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -420,8 +532,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-03-31 20:25:03</span>
-            <span class="mobile">2025-03-31 20:25:03</span>
+            <span class="desktop">2025-03-31 23:09:01</span>
+            <span class="mobile">2025-03-31 23:09:01</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -443,7 +555,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>484 Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>472 Words</span>
         </span>
     
     
@@ -467,144 +579,47 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<p>不知道怎么搞得,下午写的wp被"rm -rf"了🤣🤣🤣</p>
-<p>做re给我re成 Re: 从零开始的异世界生活 ...</p>
+			<p>不知道怎么搞得,下午写的wp被”rm -rf”了🤣🤣🤣</p>
+<p>做re给我re成 Re: 从零开始的异世界生活 …</p>
 <p>我现在情绪非常淡定,淡淡的死感罢了。</p>
-<h1 id="新年快乐">新年快乐</h1>
-<h2 id="题目">题目</h2>
-<p>详见 <a class="link" 
- target="_blank" rel="noopener" href="https://buuoj.cn/challenges#%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90" >BUUUCTF
-的这道题<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-<h2 id="wp">wp</h2>
-<p>先放进IDA反编译，F5一下 <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="check.png"
-                      alt="alt text" 
-                >
-发现函数很少，怀疑是加壳了。</p>
-<h3 id="查壳">查壳</h3>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="check.png"
-                      alt="alt text" 
-                >
-发现加了UPX壳，并且文件是32位的。</p>
-<h3 id="脱壳">脱壳</h3>
-<h4 id="手动脱壳">手动脱壳</h4>
-<p>找到入口断点。 <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="unpack1.png"
-                      alt="alt text" 
-                ></p>
-<p>然后设置这个地址为新的执行点。 <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="unpack2.png"
-                     
-alt="alt text" 
-                ></p>
-<p>注意此时寄存器ESP地址 <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="unpack3.png"
-                      alt="alt text" 
-                ></p>
-<p>F8执行异步后，ESP地址变化。 <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="unpack4.png"
-                     
-alt="alt text" 
-                ></p>
-<p>在内存窗口打开变化后的地址，设置为新的硬件断点，并执行 <img 
-
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="unpack5.png"
-                      alt="alt text" 
-                ></p>
+<h1 id="新年快乐"><a href="#新年快乐" class="headerlink" title="新年快乐"></a>新年快乐</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>详见 <a class="link" target="_blank" rel="noopener" href="https://buuoj.cn/challenges#%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90">BUUUCTF 的这道题<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h2 id="wp"><a href="#wp" class="headerlink" title="wp"></a>wp</h2><p>先放进IDA反编译，F5一下<br><img lazyload="" src="/images/loading.svg" data-src="check.png" alt="alt text"><br>发现函数很少，怀疑是加壳了。</p>
+<h3 id="查壳"><a href="#查壳" class="headerlink" title="查壳"></a>查壳</h3><p><img lazyload="" src="/images/loading.svg" data-src="check.png" alt="alt text"><br>发现加了UPX壳，并且文件是32位的。</p>
+<h3 id="脱壳"><a href="#脱壳" class="headerlink" title="脱壳"></a>脱壳</h3><h4 id="手动脱壳"><a href="#手动脱壳" class="headerlink" title="手动脱壳"></a>手动脱壳</h4><p>找到入口断点。<br><img lazyload="" src="/images/loading.svg" data-src="unpack1.png" alt="alt text"></p>
+<p>然后设置这个地址为新的执行点。<br><img lazyload="" src="/images/loading.svg" data-src="unpack2.png" alt="alt text"></p>
+<p>注意此时寄存器ESP地址<br><img lazyload="" src="/images/loading.svg" data-src="unpack3.png" alt="alt text"></p>
+<p>F8执行异步后，ESP地址变化。<br><img lazyload="" src="/images/loading.svg" data-src="unpack4.png" alt="alt text"></p>
+<p>在内存窗口打开变化后的地址，设置为新的硬件断点，并执行<br><img lazyload="" src="/images/loading.svg" data-src="unpack5.png" alt="alt text"></p>
 <p>发现断点。找到popad，其后的第一个jump即为OEP。</p>
-<figure>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="unpack6.png"
-                      alt="alt text" 
-                >
-<figcaption aria-hidden="true">alt text</figcaption>
-</figure>
-<p>用插件dump掉壳，然后autoresearch
-IAT，并导入IAT，fix之前掉壳的文件。</p>
-<p>最后拖进IDA，就可以看到脱壳后的程序反编译的结果了。结合题目提示，字符串即flag。
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="ida2.png"
-                      alt="alt text" 
-                ></p>
-<h4 id="工具脱壳">工具脱壳</h4>
-<p>用upx的工具进行脱壳，脱壳后的文件拖进IDA结果一致。 <img 
-
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="unpackbytool.png"
-                      alt="alt text" 
-                ></p>
-<h2 id="笔记">笔记</h2>
-
+<p><img lazyload="" src="/images/loading.svg" data-src="unpack6.png" alt="alt text"></p>
+<p>用插件dump掉壳，然后autoresearch IAT，并导入IAT，fix之前掉壳的文件。</p>
+<p>最后拖进IDA，就可以看到脱壳后的程序反编译的结果了。结合题目提示，字符串即flag。<br><img lazyload="" src="/images/loading.svg" data-src="ida2.png" alt="alt text"></p>
+<h4 id="工具脱壳"><a href="#工具脱壳" class="headerlink" title="工具脱壳"></a>工具脱壳</h4><p>用upx的工具进行脱壳，脱壳后的文件拖进IDA结果一致。<br><img lazyload="" src="/images/loading.svg" data-src="unpackbytool.png" alt="alt text"></p>
+<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2>
   <div class="note-large red">
     <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
       <p>壳</p>
 
     </div>
     <div class="notel-content">
-      <p><a class="link" 
- target="_blank" rel="noopener" href="https://www.cnblogs.com/Sna1lGo/p/14727846.html" >脱壳——UPX脱壳原理<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>
-<a class="link" 
- target="_blank" rel="noopener" href="https://www.cnblogs.com/cainiao-chuanqi/p/14763537.html" >加壳与脱壳理论详解<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+      <p><a class="link" target="_blank" rel="noopener" href="https://www.cnblogs.com/Sna1lGo/p/14727846.html">脱壳——UPX脱壳原理<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><a class="link" target="_blank" rel="noopener" href="https://www.cnblogs.com/cainiao-chuanqi/p/14763537.html">加壳与脱壳理论详解<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
 
     </div>
   </div>
-<h1 id="xor">XOR</h1>
-<p>拖进IDA，F5一下 <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="xor1.png"
-                      alt="alt text" 
-                ></p>
+<h1 id="XOR"><a href="#XOR" class="headerlink" title="XOR"></a>XOR</h1><p>拖进IDA，F5一下<br><img lazyload="" src="/images/loading.svg" data-src="xor1.png" alt="alt text"></p>
 <p>反编译结果大概是说，输入的flag字符串v5，从v5[1]开始和前一个字符做异或得到global。</p>
-<p>找到global <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="9e648f5389fd8773bc25dc43ff5c516.png"
-                     
-alt="alt text" 
-                ></p>
+<p>找到global<br><img lazyload="" src="/images/loading.svg" data-src="9e648f5389fd8773bc25dc43ff5c516.png" alt="alt text"></p>
 <p>提取字符串并转换成ascll码</p>
 <div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data=[</span><br><span class="line">	0x66, 0x0A, 0x6B, 0x0C, 0x77, 0x26, 0x4F, 0x2E, 0x40, 0x11,</span><br><span class="line">    0x78, 0x0D, 0x5A, 0x3B, 0x55, 0x11, 0x70, 0x19, 0x46, 0x1F,</span><br><span class="line">    0x76, 0x22, 0x4D, 0x23, 0x44, 0x0E, 0x67, 0x06, 0x68, 0x0F,</span><br><span class="line">    0x47, 0x32, 0x4F</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div>
 <p>由</p>
-<p>
-数学公式：
-</p>
-<p><span class="math display">\[ evidence_{i}=\sum_{j}W_{ij}x_{j}+b_{i}
-\]</span> <span class="math display">\[
-s[i]&#39;=s[i] \oplus s[i-1]\\
-s[i]=s[i]&#39; \oplus s[i-1]
-\]</span> 脚本：</p>
-<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">data = [</span><br><span class="line">    <span class="number">0x66</span>, <span class="number">0x0A</span>, <span class="number">0x6B</span>, <span class="number">0x0C</span>, <span class="number">0x77</span>, <span class="number">0x26</span>, <span class="number">0x4F</span>, <span class="number">0x2E</span>, <span class="number">0x40</span>, <span class="number">0x11</span>,</span><br><span class="line">    <span class="number">0x78</span>, <span class="number">0x0D</span>, <span class="number">0x5A</span>, <span class="number">0x3B</span>, <span class="number">0x55</span>, <span class="number">0x11</span>, <span class="number">0x70</span>, <span class="number">0x19</span>, <span class="number">0x46</span>, <span class="number">0x1F</span>,</span><br><span class="line">    <span class="number">0x76</span>, <span class="number">0x22</span>, <span class="number">0x4D</span>, <span class="number">0x23</span>, <span class="number">0x44</span>, <span class="number">0x0E</span>, <span class="number">0x67</span>, <span class="number">0x06</span>, <span class="number">0x68</span>, <span class="number">0x0F</span>,</span><br><span class="line">    <span class="number">0x47</span>, <span class="number">0x32</span>, <span class="number">0x4F</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">decrypted = encrypted_data.copy()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(decrypted)-<span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>):</span><br><span class="line">    decrypted[i] ^= decrypted[i-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">flag = <span class="built_in">bytes</span>(decrypted).decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Decrypted Flag:&quot;</span>, flag)</span><br></pre></td></tr></table></figure></div>
+<p>数学公式：</p>
+
+<script type="math/tex; mode=display">evidence_{i}=\sum_{j}W_{ij}x_{j}+b_{i}</script><script type="math/tex; mode=display">
+s[i]'=s[i] \oplus s[i-1]\\
+s[i]=s[i]' \oplus s[i-1]</script><p>脚本：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">data = [</span><br><span class="line">    <span class="number">0x66</span>, <span class="number">0x0A</span>, <span class="number">0x6B</span>, <span class="number">0x0C</span>, <span class="number">0x77</span>, <span class="number">0x26</span>, <span class="number">0x4F</span>, <span class="number">0x2E</span>, <span class="number">0x40</span>, <span class="number">0x11</span>,</span><br><span class="line">    <span class="number">0x78</span>, <span class="number">0x0D</span>, <span class="number">0x5A</span>, <span class="number">0x3B</span>, <span class="number">0x55</span>, <span class="number">0x11</span>, <span class="number">0x70</span>, <span class="number">0x19</span>, <span class="number">0x46</span>, <span class="number">0x1F</span>,</span><br><span class="line">    <span class="number">0x76</span>, <span class="number">0x22</span>, <span class="number">0x4D</span>, <span class="number">0x23</span>, <span class="number">0x44</span>, <span class="number">0x0E</span>, <span class="number">0x67</span>, <span class="number">0x06</span>, <span class="number">0x68</span>, <span class="number">0x0F</span>,</span><br><span class="line">    <span class="number">0x47</span>, <span class="number">0x32</span>, <span class="number">0x4F</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">decrypted = encrypted_data.copy()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(decrypted)-<span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>):</span><br><span class="line">    decrypted[i] ^= decrypted[i-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">flag = <span class="built_in">bytes</span>(decrypted).decode(<span class="string">'utf-8'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Decrypted Flag:"</span>, flag)</span><br></pre></td></tr></table></figure></div>
 <p>拿到flag</p>
-<figure>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="8e4bbdacde59d80c8db2706f79dca28.png"
-                      alt="alt text" 
-                >
-<figcaption aria-hidden="true">alt text</figcaption>
-</figure>
+<p><img lazyload="" src="/images/loading.svg" data-src="8e4bbdacde59d80c8db2706f79dca28.png" alt="alt text"></p>
 
 		</div>
 
@@ -619,7 +634,7 @@ s[i]=s[i]&#39; \oplus s[i-1]
         
             <li>
                 <strong>Updated at
-                    :</strong> 2025-03-31 20:25:03
+                    :</strong> 2025-03-31 23:09:01
             </li>
         
         <li>
@@ -736,7 +751,7 @@ s[i]=s[i]&#39; \oplus s[i-1]
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
 		<div class="page-title">BUUCTF reverse</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90"><span class="nav-text">新年快乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wp"><span class="nav-text">wp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E5%A3%B3"><span class="nav-text">查壳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%84%B1%E5%A3%B3"><span class="nav-text">脱壳</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%94%E8%AE%B0"><span class="nav-text">笔记</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#xor"><span class="nav-text">XOR</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90"><span class="nav-text">新年快乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wp"><span class="nav-text">wp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E5%A3%B3"><span class="nav-text">查壳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%84%B1%E5%A3%B3"><span class="nav-text">脱壳</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%94%E8%AE%B0"><span class="nav-text">笔记</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#XOR"><span class="nav-text">XOR</span></a></li></ol>
 
 	</div>
 </div>
@@ -765,7 +780,7 @@ s[i]=s[i]&#39; \oplus s[i-1]
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        4 posts in total
+                        3 posts in total
                     </span>
                     
                         <span>
