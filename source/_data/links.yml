@@ -1,0 +1,24 @@
+- links_category: 双鸭山
+  has_thumbnail: false
+  list:
+      - name: Yelia
+        link: yelia.fun
+        description: 艰难即捷径
+        avatar: https://yelia.fun/wp-content/uploads/2024/11/1731680146-touxiang.jpg
+        #thumbnail: 预览图（has_thumbnail 为 true 时才需要）
+
+      - name: Uniya
+        link: https://uniya.work/
+        description: 郑老师永远的神！
+        avatar: https://uniya.work/favicon.png
+
+
+- links_category: 膜拜大佬
+  has_thumbnail: false
+  list:
+      - name: Wyaaaattwho
+        link: http://blog.wyaaaattwho.xyz
+        description: 南大✌
+        avatar: https://www.notion.so/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fbcc83a06-70e2-4332-93f9-b89147e2a6bd%2F8c491ea8-1469-4082-83e9-10dce4136cff%2F_.jpeg?table=collection&id=e49a506f-d4f7-4765-922b-75581ed41eff&t=e49a506f-d4f7-4765-922b-75581ed41eff&width=800&cache=v2
+ 
+ 

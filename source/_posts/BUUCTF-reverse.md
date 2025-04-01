@@ -3,6 +3,7 @@ title: BUUCTF reverse
 date: 2025-03-30 19:54:37
 tags: CTF
 excerpt: rererererererererererererererererererere...
+mathjax: true
 ---
 
 不知道怎么搞得,下午写的wp被"rm -rf"了🤣🤣🤣
@@ -66,3 +67,53 @@ F8执行异步后，ESP地址变化。
 [加壳与脱壳理论详解](https://www.cnblogs.com/cainiao-chuanqi/p/14763537.html)
 {% endnotel %}
 
+# XOR
+
+拖进IDA，F5一下
+![alt text](xor1.png)
+
+反编译结果大概是说，输入的flag字符串v5，从v5[1]开始和前一个字符做异或得到global。
+
+找到global
+![alt text](9e648f5389fd8773bc25dc43ff5c516.png)
+
+提取字符串并转换成ascll码
+
+```
+data=[
+	0x66, 0x0A, 0x6B, 0x0C, 0x77, 0x26, 0x4F, 0x2E, 0x40, 0x11,
+    0x78, 0x0D, 0x5A, 0x3B, 0x55, 0x11, 0x70, 0x19, 0x46, 0x1F,
+    0x76, 0x22, 0x4D, 0x23, 0x44, 0x0E, 0x67, 0x06, 0x68, 0x0F,
+    0x47, 0x32, 0x4F
+]
+```
+
+由
+
+$$
+\begin{aligned}
+s[i]' &= s[i] \oplus s[i-1] \\
+s[i] &= s[i]' \oplus s[i-1]
+\end{aligned}
+$$
+脚本：
+
+```python
+data = [
+    0x66, 0x0A, 0x6B, 0x0C, 0x77, 0x26, 0x4F, 0x2E, 0x40, 0x11,
+    0x78, 0x0D, 0x5A, 0x3B, 0x55, 0x11, 0x70, 0x19, 0x46, 0x1F,
+    0x76, 0x22, 0x4D, 0x23, 0x44, 0x0E, 0x67, 0x06, 0x68, 0x0F,
+    0x47, 0x32, 0x4F
+]
+
+decrypted = encrypted_data.copy()
+for i in range(len(decrypted)-1, 0, -1):
+    decrypted[i] ^= decrypted[i-1]
+
+flag = bytes(decrypted).decode('utf-8')
+print("Decrypted Flag:", flag)
+```
+
+拿到flag
+
+![alt text](8e4bbdacde59d80c8db2706f79dca28.png)
