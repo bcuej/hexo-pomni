@@ -19,7 +19,12 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '18'  # 推荐使用 LTS 版本，这里选择 Node.js 18
+        node-version: '18'  # 使用 Node.js 18 LTS 版本
+
+    - name: Install pandoc
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y pandoc  # 安装 pandoc
 
     - name: Install dependencies & Generate static files
       run: |
