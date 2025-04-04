@@ -12,22 +12,22 @@ jobs:
 
     steps:
     - name: Checkout source
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         submodules: false
 
     - name: Setup Node.js
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
-        node-version: '18.x'
+        node-version: '18'  # 推荐使用 LTS 版本，这里选择 Node.js 18
 
     - name: Install dependencies & Generate static files
       run: |
         node -v
         npm i -g hexo-cli
-        npm i
+        npm install
         hexo clean
-        hexo g
+        hexo generate
 
     - name: Deploy to Github Pages
       uses: peaceiris/actions-gh-pages@v3
