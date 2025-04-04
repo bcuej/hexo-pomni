@@ -1,55 +1,42 @@
-name: Pages
+name: Deployment
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
-  build:
+  hexo-deployment:
     runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+
     steps:
-      - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.DEPLOY_TOKEN }}
+    - name: Checkout source
+      uses: actions/checkout@v2
+      with:
+        submodules: false
 
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
 
-      - name: Cache NPM dependencies
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: ${{ runner.OS }}-npm-cache
-          restore-keys: |
-            ${{ runner.OS }}-npm-cache
+    - name: Install dependencies & Generate static files
+      run: |
+        node -v
+        npm i -g hexo-cli
+        npm i
+        # Fix nunjucks template syntax issue, or it will cause LaTeX compilation problems
+        sed -i 's/{{/{$/g' node_modules/nunjucks/src/lexer.js
+        sed -i 's/}}/$}/g' node_modules/nunjucks/src/lexer.js
+        git diff --name-only ${{ github.event.before }} ${{ github.sha }} | xargs git checkout ${{ github.sha }} --
+        hexo clean
+        hexo g
 
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Install Hexo CLI
-        run: npm install -g hexo-cli
-
-      - name: Generate Hexo site
-        run: hexo generate
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./public
-
-  deploy:
-    needs: build
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+    - name: Deploy to Github Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: ./public
+        keep_files: true
