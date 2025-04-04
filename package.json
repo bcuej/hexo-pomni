@@ -30,7 +30,7 @@
     "hexo-theme-redefine": "^2.8.2",
     "hexo-wordcount": "^6.0.1",
     "luxon": "^3.5.0",
-    "mongodb": "^6.14.2",
+    "mongodb": "^6.15.0",
     "nodejieba": "^3.4.4"
   }
 }
