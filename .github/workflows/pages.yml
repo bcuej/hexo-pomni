@@ -31,7 +31,6 @@ jobs:
         run: npm install
       - name: Fix permissions
         run: |
-          cd source  # 进入 `source` 目录
           sudo chmod -R 755 node_modules  # 给 node_modules 目录及其中的文件设置权限
       - name: Build
         run: npm run build
