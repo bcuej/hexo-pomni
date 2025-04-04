@@ -62,10 +62,10 @@ F8执行异步后，ESP地址变化。
 
 ## 笔记
 
-{% notel red 壳 %}
+{% note red 壳 %}
 [脱壳——UPX脱壳原理](https://www.cnblogs.com/Sna1lGo/p/14727846.html)
 [加壳与脱壳理论详解](https://www.cnblogs.com/cainiao-chuanqi/p/14763537.html)
-{% endnotel %}
+{% endnote %}
 
 # XOR
 
