@@ -1,0 +1,53 @@
+name: Deploy Hexo
+
+on:
+  push:
+    branches:
+      - main  # 监听 main 分支的 push 事件
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # 使用最新版本的 Ubuntu 来运行工作流
+
+    steps:
+      - name: Checkout public repository (GitHub Pages)
+        uses: actions/checkout@v4  # 克隆公开仓库（存放静态文件的仓库）
+        with:
+          submodules: true  # 克隆子模块
+
+      - name: Checkout private repository (Hexo source)
+        uses: actions/checkout@v4  # 克隆私有仓库（存放 Hexo 源码的仓库）
+        with:
+          repository: bcuej/hexo-pomni  # 私有仓库名称
+          token: ${{ secrets.DEPLOY_TOKEN }}  # 使用你创建的 PAT Token
+          path: source  # 克隆到 source 目录
+          submodules: true  # 克隆子模块
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3  # 设置 Node.js 环境
+        with:
+          node-version: '18'  # 设置 Node.js 版本为 18
+
+      - name: Install Hexo dependencies
+        run: |
+          cd source  # 进入私有仓库的 Hexo 源码目录
+          npm install  # 安装 Hexo 和其他依赖
+
+      - name: Fix permissions
+        run: |
+          cd source  # 进入 source 目录
+          sudo chmod -R 755 node_modules  # 给 node_modules 目录及其中的文件设置权限
+  
+      - name: Generate static files
+        run: |
+          cd source  # 进入私有仓库的 Hexo 源码目录
+          npx hexo generate  # 使用 Hexo 生成静态文件
+        
+      - name: Deploy to GitHub Pages
+        env:
+          GIT_USER: ${{ secrets.DEPLOY_TOKEN }}  # 使用你的 GitHub Token
+        run: |
+          cd source  # 进入私有仓库的 Hexo 源码目录
+          git config --global user.name "bcuej"  # 配置 Git 用户名
+          git config --global user.email "xiexy235@mail2.sysu.edu.cn"  # 配置 Git 用户邮箱
+          npx hexo deploy --repo https://$GIT_USER@github.com/bcuej/bcuej.github.io.git  # 部署到 GitHub Pages 仓库

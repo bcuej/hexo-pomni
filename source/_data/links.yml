@@ -2,7 +2,7 @@
   has_thumbnail: false
   list:
       - name: Yelia
-        link: yelia.fun
+        link: http://yelia.fun
         description: 艰难即捷径
         avatar: https://yelia.fun/wp-content/uploads/2024/11/1731680146-touxiang.jpg
         #thumbnail: 预览图（has_thumbnail 为 true 时才需要）
@@ -11,6 +11,11 @@
         link: https://uniya.work/
         description: 郑老师永远的神！
         avatar: https://uniya.work/favicon.png
+
+      - name: 深白色
+        link: https://shen-baise.github.io/
+        description: 杰神——虔诚拜三拜
+        avater: https://shen-baise.github.io/img/pic.jpg
 
 
 - links_category: 膜拜大佬
