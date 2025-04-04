@@ -117,6 +117,6 @@ mathjax:
 deploy:
   type: git
   repo: git@github.com:bcuej/bcuej.github.io.git
-  branch: main
+  branch: gh-pages
 
  
