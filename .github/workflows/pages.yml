@@ -1,4 +1,4 @@
-
+# .github/workflows/deploy.yml
 name: Deploy Hexo to GitHub Pages
 
 on:
@@ -29,14 +29,13 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        
+
+      - name: Generate static files
+        run: npx hexo generate
+
       - name: Fix permissions
         run: |
           sudo chmod -R 755 node_modules  # 给 node_modules 目录及其中的文件设置权限
-          
-      - name: Build
-      - name: Generate static files
-        run: npx hexo generate
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
