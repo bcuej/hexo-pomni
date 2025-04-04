@@ -12,14 +12,14 @@ jobs:
 
     steps:
     - name: Checkout source
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         submodules: false
 
     - name: Setup Node.js
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
-        node-version: '12.x'
+        node-version: '18.x'
 
     - name: Install dependencies & Generate static files
       run: |
@@ -32,7 +32,7 @@ jobs:
     - name: Deploy to Github Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.DEPLOY_TOKEN }}
         publish_branch: gh-pages
         publish_dir: ./public
         keep_files: true
