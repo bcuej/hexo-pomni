@@ -1,53 +1,53 @@
-name: Deploy Hexo
-
+name: Pages
+ 
 on:
   push:
     branches:
-      - main  # 监听 main 分支的 push 事件
-
+      - main # 我们设置的分支是 gh-pages
+ 
 jobs:
   build:
-    runs-on: ubuntu-latest  # 使用最新版本的 Ubuntu 来运行工作流
-
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout public repository (GitHub Pages)
-        uses: actions/checkout@v4  # 克隆公开仓库（存放静态文件的仓库）
+      - uses: actions/checkout@v4
         with:
-          submodules: true  # 克隆子模块
-
-      - name: Checkout private repository (Hexo source)
-        uses: actions/checkout@v4  # 克隆私有仓库（存放 Hexo 源码的仓库）
+          token: ${{ secrets.DEPLOY_TOKEN }}
+          # If your repository depends on submodule, please see: https://github.com/actions/checkout
+          submodules: false
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
         with:
-          repository: bcuej/hexo-pomni  # 私有仓库名称
-          token: ${{ secrets.DEPLOY_TOKEN }}  # 使用你创建的 PAT Token
-          path: source  # 克隆到 source 目录
-          submodules: true  # 克隆子模块
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3  # 设置 Node.js 环境
+          # Examples: 20, 18.19, >=16.20.2, lts/Iron, lts/Hydrogen, *, latest, current, node
+          # Ref: https://github.com/actions/setup-node#supported-version-syntax
+          node-version: "20.11.1"
+      - name: Cache NPM dependencies
+        uses: actions/cache@v4
         with:
-          node-version: '18'  # 设置 Node.js 版本为 18
-
-      - name: Install Hexo dependencies
-        run: |
-          cd source  # 进入私有仓库的 Hexo 源码目录
-          npm install  # 安装 Hexo 和其他依赖
-
+          path: node_modules
+          key: ${{ runner.OS }}-npm-cache
+          restore-keys: |
+            ${{ runner.OS }}-npm-cache
+      - name: Install Dependencies
+        run: npm install
       - name: Fix permissions
         run: |
-          cd source  # 进入 source 目录
           sudo chmod -R 755 node_modules  # 给 node_modules 目录及其中的文件设置权限
-  
-      - name: Generate static files
-        run: |
-          cd source  # 进入私有仓库的 Hexo 源码目录
-          npx hexo generate  # 使用 Hexo 生成静态文件
-        
+      - name: Build
+        run: npm run build
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
-        env:
-          GIT_USER: ${{ secrets.DEPLOY_TOKEN }}  # 使用你的 GitHub Token
-        run: |
-          cd source  # 进入私有仓库的 Hexo 源码目录
-          git config --global user.name "bcuej"  # 配置 Git 用户名
-          git config --global user.email "xiexy235@mail2.sysu.edu.cn"  # 配置 Git 用户邮箱
-          npx hexo deploy --repo https://$GIT_USER@github.com/bcuej/bcuej.github.io.git  # 部署到 GitHub Pages 仓库
+        id: deployment
+        uses: actions/deploy-pages@v4
